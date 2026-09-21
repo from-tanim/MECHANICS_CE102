@@ -51,6 +51,21 @@ Built with plain HTML, CSS, and JavaScript — no build tools, no dependencies, 
 
 ---
 
+┌─────────────────────────────────────────────────────────────┐
+│                                                             │
+│   [ CE-102 ]   (badge, blue/purple gradient)                │
+│                                                             │
+│   ENGINEERING MECHANICS                                     │
+│   Resource Hub                                              │
+│                                                             │
+│   🧩 Topics   📄 Notes   🎥 Classes   ✏️ Exercise Solve     │
+│   📑 PYQ      🍯 Extra Honey                                │
+│                                                             │
+│   ──────────────────────────────────────────────            │
+│   Dark background · Poppins font · Subtle gradient glow     │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘
+
 ## 🚀 Quick Start
 
 1. **Clone the repo**
