@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Engineering Mechanics CE-102 | Resource Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+:root{
+  --primary:#6a8cff;
+  --primary-2:#8b6aff;
+  --accent:#ffb347;
+  --green:#4ade80;
+  --red:#ff7b7b;
+  --cyan:#4dd0e1;
+  --dark:#0f1115;
+  --panel:#171a21;
+  --panel-2:#1e222b;
+  --card:#252a34;
+  --border:#313846;
+  --text:#e2e6ee;
+  --muted:#8b93a5;
+  --radius:14px;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+html{scroll-behavior:smooth;}
+
+body{
+  font-family:'Poppins',sans-serif;
+  background:
+    radial-gradient(900px 500px at 10% -10%, rgba(106,140,255,.14), transparent 60%),
+    radial-gradient(800px 500px at 100% 0%, rgba(139,106,255,.12), transparent 55%),
+    var(--dark);
+  color:var(--text);
+  line-height:1.6;
+  min-height:100vh;
+}
+
+/* ---------- TOP BAR ---------- */
+.topbar{
+  position:sticky;top:0;z-index:60;
+  display:flex;align-items:center;justify-content:space-between;
+  gap:1rem;flex-wrap:wrap;
+  padding:.85rem 2rem;
+  background:rgba(15,17,21,.85);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--border);
+}
+.brand{display:flex;align-items:center;gap:.75rem;}
+.brand-badge{
+  background:linear-gradient(135deg,var(--primary),var(--primary-2));
+  color:#fff;font-weight:700;font-size:.8rem;letter-spacing:.5px;
+  padding:.35rem .7rem;border-radius:8px;
+}
+.brand-name{font-weight:600;font-size:1rem;letter-spacing:.2px;}
+.pill{
+  display:inline-flex;align-items:center;gap:.45rem;
+  background:var(--panel-2);border:1px solid var(--border);
+  padding:.4rem .85rem;border-radius:999px;
+  font-size:.8rem;color:var(--muted);
+}
+.pill i{color:var(--primary);}
+
+/* ---------- HERO ---------- */
+.hero{
+  text-align:center;
+  padding:3.5rem 2rem 2.5rem;
+  max-width:900px;margin:0 auto;
+}
+.hero h1{
+  font-size:clamp(2rem,5vw,3rem);
+  font-weight:700;line-height:1.15;letter-spacing:-.5px;
+  background:linear-gradient(120deg,#fff 20%,var(--primary) 60%,var(--primary-2));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero-sub{
+  margin-top:.6rem;font-size:1rem;font-weight:500;color:var(--accent);
+  letter-spacing:2px;text-transform:uppercase;
+}
+.hero-desc{
+  margin-top:1rem;color:var(--muted);font-size:.95rem;max-width:640px;margin-left:auto;margin-right:auto;
+}
+.hero-icons{
+  display:flex;justify-content:center;flex-wrap:wrap;gap:.6rem;margin-top:1.6rem;
+}
+.hero-icons span{
+  display:inline-flex;align-items:center;gap:.4rem;
+  font-size:.75rem;color:var(--muted);
+  border:1px dashed var(--border);border-radius:999px;
+  padding:.3rem .75rem;
+}
+.hero-icons i{color:var(--primary);font-size:.7rem;}
+
+/* ---------- TABS ---------- */
+.tabs{
+  display:flex;gap:.6rem;flex-wrap:wrap;
+  max-width:1200px;margin:0 auto 1.5rem;padding:0 2rem;
+}
+.tab{
+  display:inline-flex;align-items:center;gap:.55rem;
+  background:var(--panel);border:1px solid var(--border);
+  color:var(--muted);font-family:inherit;font-size:.85rem;font-weight:500;
+  padding:.6rem 1rem;border-radius:999px;cursor:pointer;
+  transition:all .25s ease;
+}
+.tab:hover{color:var(--text);border-color:#46506a;transform:translateY(-2px);}
+.tab.active{
+  background:linear-gradient(135deg,var(--primary),var(--primary-2));
+  border-color:transparent;color:#fff;
+  box-shadow:0 6px 18px rgba(106,140,255,.32);
+}
+.tab.active .tab-count{background:rgba(255,255,255,.22);color:#fff;}
+.tab-count{
+  background:var(--panel-2);color:var(--muted);
+  font-size:.7rem;font-weight:600;
+  padding:.1rem .45rem;border-radius:999px;
+}
+
+/* ---------- TOOLBAR ---------- */
+.toolbar{
+  display:flex;gap:1rem;align-items:center;
+  max-width:1200px;margin:0 auto 1.5rem;padding:0 2rem;
+}
+.search-wrap{
+  position:relative;flex:1;
+}
+.search-wrap i{
+  position:absolute;left:1rem;top:50%;transform:translateY(-50%);
+  color:var(--muted);font-size:.9rem;
+}
+.search-box{
+  width:100%;
+  padding:.85rem 1rem .85rem 2.7rem;
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:12px;
+  color:var(--text);
+  font-family:inherit;font-size:.9rem;
+  outline:none;
+  transition:border-color .25s ease, box-shadow .25s ease;
+}
+.search-box::placeholder{color:#5f677a;}
+.search-box:focus{
+  border-color:var(--primary);
+  box-shadow:0 0 0 3px rgba(106,140,255,.15);
+}
+.toggle-all-btn{
+  background:linear-gradient(135deg,var(--primary),var(--primary-2));
+  color:#fff;border:none;
+  padding:.85rem 1.4rem;border-radius:12px;
+  font-family:inherit;font-size:.85rem;font-weight:600;
+  cursor:pointer;white-space:nowrap;
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+.toggle-all-btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(106,140,255,.3);}
+
+/* ---------- CATEGORY INFO ---------- */
+.cat-info{
+  max-width:1200px;margin:0 auto 1.5rem;padding:0 2rem;
+  display:flex;align-items:center;gap:.7rem;
+  color:var(--muted);font-size:.85rem;
+}
+.cat-info i{color:var(--primary);}
+
+/* ---------- CHAPTERS ---------- */
+.chapter-container{
+  max-width:1200px;margin:0 auto 4rem;padding:0 2rem;
+}
+.chapter{
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  margin-bottom:1rem;
+  overflow:hidden;
+  transition:border-color .25s ease, box-shadow .25s ease;
+}
+.chapter:hover{border-color:#414b61;}
+.chapter.active{border-color:rgba(106,140,255,.45);box-shadow:0 8px 30px rgba(0,0,0,.35);}
+
+.chapter-header{
+  padding:1.15rem 1.4rem;
+  display:flex;justify-content:space-between;align-items:center;gap:1rem;
+  cursor:pointer;
+  transition:background .25s ease;
+  user-select:none;
+}
+.chapter-header:hover{background:var(--panel-2);}
+.chapter-left{display:flex;align-items:center;gap:.9rem;min-width:0;}
+.chapter-num{
+  flex-shrink:0;
+  display:grid;place-items:center;
+  width:34px;height:34px;border-radius:10px;
+  background:rgba(106,140,255,.12);
+  color:var(--primary);
+  font-size:.78rem;font-weight:700;
+}
+.chapter.active .chapter-num{
+  background:linear-gradient(135deg,var(--primary),var(--primary-2));
+  color:#fff;
+}
+.chapter-title{
+  font-size:1rem;font-weight:600;color:var(--text);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.chapter-right{display:flex;align-items:center;gap:.8rem;flex-shrink:0;}
+.chip{
+  background:var(--panel-2);border:1px solid var(--border);
+  color:var(--muted);font-size:.7rem;font-weight:600;
+  padding:.15rem .55rem;border-radius:999px;
+}
+.chapter-toggle{
+  color:var(--muted);font-size:.8rem;
+  transition:transform .3s ease, color .3s ease;
+  transform:rotate(-90deg);
+}
+.chapter.active .chapter-toggle{transform:rotate(0deg);color:var(--primary);}
+
+.chapter-body{
+  display:none;
+  padding:0 1.4rem 1.4rem;
+  animation:fadeIn .3s ease;
+}
+.chapter.active .chapter-body{display:block;}
+
+@keyframes fadeIn{
+  from{opacity:0;transform:translateY(-6px);}
+  to{opacity:1;transform:translateY(0);}
+}
+
+/* ---------- RESOURCE CARDS ---------- */
+.res-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+  gap:.9rem;
+  margin-top:.4rem;
+}
+.res-card{
+  display:flex;align-items:center;gap:.9rem;
+  background:var(--card);
+  border:1px solid transparent;
+  border-radius:12px;
+  padding:.85rem 1rem;
+  cursor:pointer;
+  transition:transform .22s ease, border-color .22s ease, background .22s ease;
+}
+.res-card:hover{
+  transform:translateY(-3px);
+  background:#2a3040;
+  border-color:var(--border);
+}
+.res-icon{
+  flex-shrink:0;
+  display:grid;place-items:center;
+  width:40px;height:40px;border-radius:11px;
+  font-size:.85rem;
+}
+.k-video .res-icon{background:rgba(255,123,123,.14);color:#ff7b7b;}
+.k-pdf   .res-icon{background:rgba(255,179,71,.14);color:var(--accent);}
+.k-link  .res-icon{background:rgba(77,208,225,.14);color:var(--cyan);}
+.k-pyq   .res-icon{background:rgba(74,222,128,.14);color:var(--green);}
+
+.res-body{flex:1;min-width:0;}
+.res-title{
+  font-size:.87rem;font-weight:500;color:var(--text);
+  line-height:1.35;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+}
+.res-meta{
+  display:flex;justify-content:space-between;gap:.5rem;
+  margin-top:.3rem;font-size:.72rem;color:var(--muted);
+}
+.res-kind{
+  font-weight:600;letter-spacing:.4px;text-transform:uppercase;font-size:.63rem;
+}
+.k-video .res-kind{color:#ff7b7b;}
+.k-pdf .res-kind{color:var(--accent);}
+.k-link .res-kind{color:var(--cyan);}
+.k-pyq .res-kind{color:var(--green);}
+
+.res-arrow{
+  color:#4d566b;font-size:.7rem;flex-shrink:0;
+  transition:transform .22s ease, color .22s ease;
+}
+.res-card:hover .res-arrow{transform:translateX(3px);color:var(--primary);}
+
+/* ---------- EMPTY STATE ---------- */
+.empty{
+  text-align:center;padding:3.5rem 1rem;color:var(--muted);
+}
+.empty i{font-size:2.2rem;color:#3a4252;margin-bottom:.8rem;display:block;}
+.empty p{font-size:.9rem;}
+
+/* ---------- MODAL ---------- */
+.modal{
+  position:fixed;inset:0;z-index:100;
+  background:rgba(0,0,0,.82);
+  backdrop-filter:blur(6px);
+  display:none;align-items:center;justify-content:center;
+  padding:1.5rem;
+}
+.modal.open{display:flex;animation:fadeIn .22s ease;}
+.modal-inner{
+  position:relative;width:100%;max-width:900px;
+}
+.modal-close{
+  position:absolute;top:-2.6rem;right:0;
+  background:var(--panel-2);border:1px solid var(--border);
+  color:var(--text);width:38px;height:38px;border-radius:50%;
+  cursor:pointer;font-size:.9rem;
+  transition:background .2s ease, transform .2s ease;
+}
+.modal-close:hover{background:var(--red);transform:rotate(90deg);}
+.modal-video{
+  position:relative;padding-bottom:56.25%;height:0;
+  border-radius:var(--radius);overflow:hidden;
+  border:1px solid var(--border);
+}
+.modal-video iframe{
+  position:absolute;inset:0;width:100%;height:100%;border:none;
+}
+.modal-placeholder{
+  background:var(--panel);
+  border:1px dashed var(--border);
+  border-radius:var(--radius);
+  padding:4rem 2rem;text-align:center;color:var(--muted);
+}
+.modal-placeholder i{font-size:2rem;color:#3a4252;margin-bottom:.9rem;display:block;}
+.modal-placeholder p{font-weight:600;color:var(--text);margin-bottom:.3rem;}
+.modal-placeholder small{font-size:.78rem;}
+
+/* ---------- FOOTER ---------- */
+footer{
+  text-align:center;padding:2.5rem 1.5rem;
+  border-top:1px solid var(--border);
+  color:var(--muted);font-size:.8rem;
+}
+footer strong{color:var(--primary);}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:768px){
+  .topbar{padding:.75rem 1.1rem;}
+  .hero{padding:2.5rem 1.2rem 1.8rem;}
+  .tabs,.toolbar,.cat-info,.chapter-container{padding-left:1.1rem;padding-right:1.1rem;}
+  .toolbar{flex-direction:column;align-items:stretch;}
+  .toggle-all-btn{width:100%;}
+  .res-grid{grid-template-columns:1fr;}
+  .chapter-title{font-size:.9rem;}
+  .brand-name{font-size:.85rem;}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ TOP BAR ============ -->
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-badge">CE-102</span>
+    <span class="brand-name">Engineering Mechanics</span>
+  </div>
+  <div class="pill">
+    <i class="fas fa-database"></i>
+    <span id="totalCount">0</span> Resources
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <h1>Engineering Mechanics</h1>
+  <p class="hero-sub">CE-102 &middot; Resource Hub</p>
+  <p class="hero-desc">
+    Everything you need for the course — topic-wise concepts, handwritten notes,
+    full class recordings, textbook exercise solutions, previous year questions
+    and a little extra honey for the toppers.
+  </p>
+  <div class="hero-icons">
+    <span><i class="fas fa-layer-group"></i> Topics</span>
+    <span><i class="fas fa-file-pdf"></i> Notes</span>
+    <span><i class="fas fa-chalkboard-user"></i> Classes</span>
+    <span><i class="fas fa-pen-ruler"></i> Exercise Solve</span>
+    <span><i class="fas fa-file-lines"></i> PYQ</span>
+    <span><i class="fas fa-star"></i> Extra Honey</span>
+  </div>
+</section>
+
+<!-- ============ TABS ============ -->
+<nav class="tabs" id="tabs"></nav>
+
+<!-- ============ TOOLBAR ============ -->
+<div class="toolbar">
+  <div class="search-wrap">
+    <i class="fas fa-search"></i>
+    <input type="text" id="search" class="search-box" placeholder="Search resources across this category...">
+  </div>
+  <button class="toggle-all-btn" id="toggleAll">Expand All</button>
+</div>
+
+<!-- ============ CATEGORY INFO ============ -->
+<div class="cat-info" id="catInfo"></div>
+
+<!-- ============ CHAPTERS ============ -->
+<div class="chapter-container" id="chapterContainer"></div>
+
+<!-- ============ MODAL ============ -->
+<div class="modal" id="modal">
+  <div class="modal-inner">
+    <button class="modal-close" id="modalClose"><i class="fas fa-times"></i></button>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <p><strong>CE-102 · Engineering Mechanics</strong> — Study smart, build strong. 🛠️</p>
+  <p style="margin-top:.4rem;">Made for students, by students.</p>
+</footer>
+
+<script>
+/* =========================================================
+   RESOURCE DATA
+   ---------------------------------------------------------
+   kind : "video"  -> needs `yt` (YouTube video ID)
+          "pdf"    -> needs `link`
+          "link"   -> needs `link`
+          "pyq"    -> needs `link` (or `yt`)
+   Replace every "YOUR_..." id / "#" link with the real one.
+   ========================================================= */
+const RESOURCES = {
+
+  /* ---------------- 1. TOPICS ---------------- */
+  topics: {
+    name: "Topics",
+    icon: "fa-layer-group",
+    tagline: "Topic-wise concept lectures & quick revision material",
+    chapters: [
+      {
+        title: "Introduction & Basic Concepts",
+        items: [
+          { kind:"video", title:"What is Engineering Mechanics? — Basic Concepts", meta:"Topic 1.1 · 32 min", yt:"YOUR_ID_TOPIC_01" },
+          { kind:"pdf",   title:"Fundamental Definitions, Units & Idealizations",   meta:"Topic 1.2 · Handout", link:"#" },
+          { kind:"link",  title:"Scalars vs Vectors — Solved Examples",             meta:"Topic 1.3 · Practice", link:"#" }
+        ]
+      },
+      {
+        title: "Force Systems & Resultant",
+        items: [
+          { kind:"video", title:"Resultant of Coplanar Concurrent Forces", meta:"Topic 2.1 · 44 min", yt:"YOUR_ID_TOPIC_02" },
+          { kind:"video", title:"Resolution & Composition of Forces",      meta:"Topic 2.2 · 36 min", yt:"YOUR_ID_TOPIC_03" },
+          { kind:"pdf",   title:"Force System Formula Sheet",              meta:"Topic 2.3 · PDF", link:"#" }
+        ]
+      },
+      {
+        title: "Moment of a Force & Couples",
+        items: [
+          { kind:"video", title:"Moment of a Force about a Point & Line", meta:"Topic 3.1 · 40 min", yt:"YOUR_ID_TOPIC_04" },
+          { kind:"video", title:"Couples, Moment of a Couple & Properties", meta:"Topic 3.2 · 28 min", yt:"YOUR_ID_TOPIC_05" },
+          { kind:"pdf",   title:"Varignon's Theorem — Worked Notes", meta:"Topic 3.3 · PDF", link:"#" }
+        ]
+      },
+      {
+        title: "Equilibrium & Free Body Diagrams",
+        items: [
+          { kind:"video", title:"Free Body Diagrams — Step by Step", meta:"Topic 4.1 · 35 min", yt:"YOUR_ID_TOPIC_06" },
+          { kind:"video", title:"Lami's Theorem & Equations of Equilibrium", meta:"Topic 4.2 · 30 min", yt:"YOUR_ID_TOPIC_07" },
+          { kind:"link",  title:"Support Reactions — Practice Set", meta:"Topic 4.3 · Problems", link:"#" }
+        ]
+      },
+      {
+        title: "Trusses & Frames",
+        items: [
+          { kind:"video", title:"Method of Joints — Complete Walkthrough", meta:"Topic 5.1 · 48 min", yt:"YOUR_ID_TOPIC_08" },
+          { kind:"video", title:"Method of Sections — Tips & Tricks", meta:"Topic 5.2 · 33 min", yt:"YOUR_ID_TOPIC_09" },
+          { kind:"pdf",   title:"Perfect / Deficient / Redundant Frames", meta:"Topic 5.3 · PDF", link:"#" }
+        ]
+      },
+      {
+        title: "Friction",
+        items: [
+          { kind:"video", title:"Laws of Friction, Angle of Repose & Friction Angle", meta:"Topic 6.1 · 38 min", yt:"YOUR_ID_TOPIC_10" },
+          { kind:"video", title:"Ladder & Wedge Friction Problems", meta:"Topic 6.2 · 42 min", yt:"YOUR_ID_TOPIC_11" },
+          { kind:"pdf",   title:"Belt Friction & Screw Jack Notes", meta:"Topic 6.3 · PDF", link:"#" }
+        ]
+      },
+      {
+        title: "Centroid & Centre of Gravity",
+        items: [
+          { kind:"video", title:"Centroid of Composite Areas", meta:"Topic 7.1 · 37 min", yt:"YOUR_ID_TOPIC_12" },
+          { kind:"video", title:"Centre of Gravity of Solids & Wire Frames", meta:"Topic 7.2 · 31 min", yt:"YOUR_ID_TOPIC_13" }
+        ]
+      },
+      {
+        title: "Moment of Inertia",
+        items: [
+          { kind:"video", title:"Area Moment of Inertia — Basic Concepts", meta:"Topic 8.1 · 34 min", yt:"YOUR_ID_TOPIC_14" },
+          { kind:"video", title:"Parallel & Perpendicular Axis Theorem", meta:"Topic 8.2 · 27 min", yt:"YOUR_ID_TOPIC_15" },
+          { kind:"pdf",   title:"MOI of Standard Sections — Table", meta:"Topic 8.3 · PDF", link:"#" }
+        ]
+      },
+      {
+        title: "Shear Force & Bending Moment",
+        items: [
+          { kind:"video", title:"SFD & BMD for Simply Supported Beams", meta:"Topic 9.1 · 46 min", yt:"YOUR_ID_TOPIC_16" },
+          { kind:"video", title:"Cantilever & Overhanging Beams", meta:"Topic 9.2 · 39 min", yt:"YOUR_ID_TOPIC_17" },
+          { kind:"pdf",   title:"Relation between Load, SF & BM", meta:"Topic 9.3 · PDF", link:"#" }
+        ]
+      },
+      {
+        title: "Kinematics & Kinetics of Particles",
+        items: [
+          { kind:"video", title:"Rectilinear Motion — Equations & Graphs", meta:"Topic 10.1 · 41 min", yt:"YOUR_ID_TOPIC_18" },
+          { kind:"video", title:"Projectile & Curvilinear Motion", meta:"Topic 10.2 · 36 min", yt:"YOUR_ID_TOPIC_19" },
+          { kind:"video", title:"Newton's 2nd Law, Work-Energy & Impulse-Momentum", meta:"Topic 10.3 · 50 min", yt:"YOUR_ID_TOPIC_20" }
+        ]
+      }
+    ]
+  },
+
+  /* ---------------- 2. NOTES ---------------- */
+  notes: {
+    name: "Notes",
+    icon: "fa-file-pdf",
+    tagline: "Chapter-wise handwritten notes & formula sheets",
+    chapters: [
+      {
+        title: "Unit 1 — Introduction & Force Systems",
+        items: [
+          { kind:"pdf", title:"Handwritten Notes — Basic Concepts", meta:"PDF · 18 pages", link:"#" },
+          { kind:"pdf", title:"Force Systems & Resultant — Full Notes", meta:"PDF · 26 pages", link:"#" },
+          { kind:"pdf", title:"One-Page Formula Sheet", meta:"PDF · 1 page", link:"#" }
+        ]
+      },
+      {
+        title: "Unit 2 — Moments, Couples & Equilibrium",
+        items: [
+          { kind:"pdf", title:"Moment & Couple — Class Notes", meta:"PDF · 20 pages", link:"#" },
+          { kind:"pdf", title:"Equilibrium & FBD — Solved Note Set", meta:"PDF · 24 pages", link:"#" }
+        ]
+      },
+      {
+        title: "Unit 3 — Trusses & Friction",
+        items: [
+          { kind:"pdf", title:"Trusses & Frames — Complete Notes", meta:"PDF · 22 pages", link:"#" },
+          { kind:"pdf", title:"Friction — Theory + Numericals", meta:"PDF · 19 pages", link:"#" }
+        ]
+      },
+      {
+        title: "Unit 4 — Centroid & Moment of Inertia",
+        items: [
+          { kind:"pdf", title:"Centroid & C.G. — Handwritten Notes", meta:"PDF · 16 pages", link:"#" },
+          { kind:"pdf", title:"Moment of Inertia — Notes + Tables", meta:"PDF · 21 pages", link:"#" }
+        ]
+      },
+      {
+        title: "Unit 5 — Beams (SFD & BMD)",
+        items: [
+          { kind:"pdf", title:"Shear Force & Bending Moment — Full Notes", meta:"PDF · 28 pages", link:"#" },
+          { kind:"pdf", title:"Beam Diagram Shortcut Sheet", meta:"PDF · 2 pages", link:"#" }
+        ]
+      },
+      {
+        title: "Unit 6 — Dynamics of Particles",
+        items: [
+          { kind:"pdf", title:"Kinematics — Notes & Graphs", meta:"PDF · 20 pages", link:"#" },
+          { kind:"pdf", title:"Kinetics — Newton, Work-Energy, Momentum", meta:"PDF · 25 pages", link:"#" }
+        ]
+      },
+      {
+        title: "Full Syllabus Bundles",
+        items: [
+          { kind:"pdf", title:"Complete CE-102 Notes (All Units Combined)", meta:"PDF · 150+ pages", link:"#" },
+          { kind:"pdf", title:"Last-Minute Revision Booklet", meta:"PDF · 12 pages", link:"#" }
+        ]
+      }
+    ]
+  },
+
+  /* ---------------- 3. CLASSES ---------------- */
+  classes: {
+    name: "Classes",
+    icon: "fa-chalkboard-user",
+    tagline: "Full recorded class lectures, in order",
+    chapters: [
+      {
+        title: "Class 01–04 · Introduction & Force Systems",
+        items: [
+          { kind:"video", title:"Class 01 — Course Intro & Basic Concepts", meta:"Class 01 · 55 min", yt:"YOUR_ID_CLASS_01" },
+          { kind:"video", title:"Class 02 — Force Systems & Resultant", meta:"Class 02 · 58 min", yt:"YOUR_ID_CLASS_02" },
+          { kind:"video", title:"Class 03 — Resolution of Forces (Numericals)", meta:"Class 03 · 52 min", yt:"YOUR_ID_CLASS_03" },
+          { kind:"video", title:"Class 04 — Doubt Clearing Session", meta:"Class 04 · 40 min", yt:"YOUR_ID_CLASS_04" }
+        ]
+      },
+      {
+        title: "Class 05–08 · Moments & Equilibrium",
+        items: [
+          { kind:"video", title:"Class 05 — Moment of a Force", meta:"Class 05 · 54 min", yt:"YOUR_ID_CLASS_05" },
+          { kind:"video", title:"Class 06 — Couples & Varignon's Theorem", meta:"Class 06 · 49 min", yt:"YOUR_ID_CLASS_06" },
+          { kind:"video", title:"Class 07 — Equilibrium & FBD", meta:"Class 07 · 57 min", yt:"YOUR_ID_CLASS_07" },
+          { kind:"video", title:"Class 08 — Support Reactions (Numericals)", meta:"Class 08 · 51 min", yt:"YOUR_ID_CLASS_08" }
+        ]
+      },
+      {
+        title: "Class 09–12 · Trusses & Friction",
+        items: [
+          { kind:"video", title:"Class 09 — Trusses: Method of Joints", meta:"Class 09 · 60 min", yt:"YOUR_ID_CLASS_09" },
+          { kind:"video", title:"Class 10 — Trusses: Method of Sections", meta:"Class 10 · 47 min", yt:"YOUR_ID_CLASS_10" },
+          { kind:"video", title:"Class 11 — Friction Basics", meta:"Class 11 · 45 min", yt:"YOUR_ID_CLASS_11" },
+          { kind:"video", title:"Class 12 — Ladder, Wedge & Belt Friction", meta:"Class 12 · 53 min", yt:"YOUR_ID_CLASS_12" }
+        ]
+      },
+      {
+        title: "Class 13–16 · Centroid & Moment of Inertia",
+        items: [
+          { kind:"video", title:"Class 13 — Centroid of Composite Areas", meta:"Class 13 · 50 min", yt:"YOUR_ID_CLASS_13" },
+          { kind:"video", title:"Class 14 — Centre of Gravity of Solids", meta:"Class 14 · 44 min", yt:"YOUR_ID_CLASS_14" },
+          { kind:"video", title:"Class 15 — Moment of Inertia (Area)", meta:"Class 15 · 52 min", yt:"YOUR_ID_CLASS_15" },
+          { kind:"video", title:"Class 16 — Mass Moment of Inertia", meta:"Class 16 · 43 min", yt:"YOUR_ID_CLASS_16" }
+        ]
+      },
+      {
+        title: "Class 17–20 · Beams & Dynamics",
+        items: [
+          { kind:"video", title:"Class 17 — SFD & BMD (Simply Supported)", meta:"Class 17 · 58 min", yt:"YOUR_ID_CLASS_17" },
+          { kind:"video", title:"Class 18 — SFD & BMD (Cantilever)", meta:"Class 18 · 46 min", yt:"YOUR_ID_CLASS_18" },
+          { kind:"video", title:"Class 19 — Kinematics of Particles", meta:"Class 19 · 55 min", yt:"YOUR_ID_CLASS_19" },
+          { kind:"video", title:"Class 20 — Kinetics & Final Revision", meta:"Class 20 · 62 min", yt:"YOUR_ID_CLASS_20" }
+        ]
+      }
+    ]
+  },
+
+  /* ---------------- 4. EXERCISE SOLVE (BOOK) ---------------- */
+  exercise: {
+    name: "Exercise Solve",
+    icon: "fa-pen-ruler",
+    tagline: "Textbook exercise solutions, chapter by chapter",
+    chapters: [
+      {
+        title: "Chapter 1 · Basic Concepts — Exercise",
+        items: [
+          { kind:"pdf", title:"Exercise 1 — Full Solution (Q1–Q20)", meta:"PDF · Solved", link:"#" },
+          { kind:"video", title:"Exercise 1 — Video Explanation (Q1–Q10)", meta:"Video · 38 min", yt:"YOUR_ID_EX_01" }
+        ]
+      },
+      {
+        title: "Chapter 2 · Force Systems — Exercise",
+        items: [
+          { kind:"pdf", title:"Exercise 2 — Full Solution (Q1–Q35)", meta:"PDF · Solved", link:"#" },
+          { kind:"video", title:"Exercise 2 — Video Explanation (Q11–Q25)", meta:"Video · 52 min", yt:"YOUR_ID_EX_02" }
+        ]
+      },
+      {
+        title: "Chapter 3 · Moment & Couples — Exercise",
+        items: [
+          { kind:"pdf", title:"Exercise 3 — Full Solution", meta:"PDF · Solved", link:"#" },
+          { kind:"video", title:"Exercise 3 — Tricky Problems Explained", meta:"Video · 44 min", yt:"YOUR_ID_EX_03" }
+        ]
+      },
+      {
+        title: "Chapter 4 · Equilibrium — Exercise",
+        items: [
+          { kind:"pdf", title:"Exercise 4 — Full Solution (Q1–Q40)", meta:"PDF · Solved", link:"#" },
+          { kind:"video", title:"Exercise 4 — Video Explanation", meta:"Video · 49 min", yt:"YOUR_ID_EX_04" }
+        ]
+      },
+      {
+        title: "Chapter 5 · Trusses — Exercise",
+        items: [
+          { kind:"pdf", title:"Exercise 5 — Method of Joints Solutions", meta:"PDF · Solved", link:"#" },
+          { kind:"pdf", title:"Exercise 5 — Method of Sections Solutions", meta:"PDF · Solved", link:"#" },
+          { kind:"video", title:"Exercise 5 — Full Video Walkthrough", meta:"Video · 56 min", yt:"YOUR_ID_EX_05" }
+        ]
+      },
+      {
+        title: "Chapter 6 · Friction — Exercise",
+        items: [
+          { kind:"pdf", title:"Exercise 6 — Full Solution", meta:"PDF · Solved", link:"#" },
+          { kind:"video", title:"Exercise 6 — Ladder & Wedge Problems", meta:"Video · 41 min", yt:"YOUR_ID_EX_06" }
+        ]
+      },
+      {
+        title: "Chapter 7 · Centroid & C.G. — Exercise",
+        items: [
+          { kind:"pdf", title:"Exercise 7 — Full Solution (Q1–Q30)", meta:"PDF · Solved", link:"#" },
+          { kind:"video", title:"Exercise 7 — Video Explanation", meta:"Video · 37 min", yt:"YOUR_ID_EX_07" }
+        ]
+      },
+      {
+        title: "Chapter 8 · Moment of Inertia — Exercise",
+        items: [
+          { kind:"pdf", title:"Exercise 8 — Full Solution", meta:"PDF · Solved", link:"#" },
+          { kind:"video", title:"Exercise 8 — Composite Sections", meta:"Video · 43 min", yt:"YOUR_ID_EX_08" }
+        ]
+      },
+      {
+        title: "Chapter 9 · SFD & BMD — Exercise",
+        items: [
+          { kind:"pdf", title:"Exercise 9 — Beam Problems Solved", meta:"PDF · Solved", link:"#" },
+          { kind:"video", title:"Exercise 9 — All Beam Types", meta:"Video · 58 min", yt:"YOUR_ID_EX_09" }
+        ]
+      },
+      {
+        title: "Chapter 10 · Dynamics — Exercise",
+        items: [
+          { kind:"pdf", title:"Exercise 10 — Kinematics Solutions", meta:"PDF · Solved", link:"#" },
+          { kind:"pdf", title:"Exercise 10 — Kinetics Solutions", meta:"PDF · Solved", link:"#" },
+          { kind:"video", title:"Exercise 10 — Video Explanation", meta:"Video · 50 min", yt:"YOUR_ID_EX_10" }
+        ]
+      }
+    ]
+  },
+
+  /* ---------------- 5. PREVIOUS YEAR QUESTIONS ---------------- */
+  pyq: {
+    name: "Previous Year Questions",
+    icon: "fa-file-lines",
+    tagline: "Year-wise & topic-wise previous year question papers",
+    chapters: [
+      {
+        title: "2024 — Latest Paper",
+        items: [
+          { kind:"pyq", title:"CE-102 Final Exam 2024 — Question Paper", meta:"PDF · 2024", link:"#" },
+          { kind:"pyq", title:"2024 — Full Solution & Marking Scheme", meta:"PDF · Solved", link:"#" },
+          { kind:"video", title:"2024 Paper — Video Discussion", meta:"Video · 60 min", yt:"YOUR_ID_PYQ_2024" }
+        ]
+      },
+      {
+        title: "2023",
+        items: [
+          { kind:"pyq", title:"CE-102 Final Exam 2023 — Question Paper", meta:"PDF · 2023", link:"#" },
+          { kind:"pyq", title:"2023 — Full Solution", meta:"PDF · Solved", link:"#" },
+          { kind:"video", title:"2023 Paper — Video Discussion", meta:"Video · 55 min", yt:"YOUR_ID_PYQ_2023" }
+        ]
+      },
+      {
+        title: "2022",
+        items: [
+          { kind:"pyq", title:"CE-102 Final Exam 2022 — Question Paper", meta:"PDF · 2022", link:"#" },
+          { kind:"pyq", title:"2022 — Full Solution", meta:"PDF · Solved", link:"#" }
+        ]
+      },
+      {
+        title: "2021",
+        items: [
+          { kind:"pyq", title:"CE-102 Final Exam 2021 — Question Paper", meta:"PDF · 2021", link:"#" },
+          { kind:"pyq", title:"2021 — Full Solution", meta:"PDF · Solved", link:"#" }
+        ]
+      },
+      {
+        title: "2020 & Earlier",
+        items: [
+          { kind:"pyq", title:"CE-102 Final Exam 2020 — Question Paper", meta:"PDF · 2020", link:"#" },
+          { kind:"pyq", title:"CE-102 Final Exam 2019 — Question Paper", meta:"PDF · 2019", link:"#" },
+          { kind:"pyq", title:"CE-102 Final Exam 2018 — Question Paper", meta:"PDF · 2018", link:"#" }
+        ]
+      },
+      {
+        title: "Topic-wise PYQ Collection",
+        items: [
+          { kind:"pyq", title:"Force System & Equilibrium — Repeated Questions", meta:"PDF · Topic-wise", link:"#" },
+          { kind:"pyq", title:"Truss & Friction — Repeated Questions", meta:"PDF · Topic-wise", link:"#" },
+          { kind:"pyq", title:"Centroid & MOI — Repeated Questions", meta:"PDF · Topic-wise", link:"#" },
+          { kind:"pyq", title:"SFD & BMD — Repeated Questions", meta:"PDF · Topic-wise", link:"#" },
+          { kind:"pyq", title:"Dynamics — Repeated Questions", meta:"PDF · Topic-wise", link:"#" }
+        ]
+      },
+      {
+        title: "Important Questions (Most Probable)",
+        items: [
+          { kind:"pyq", title:"Top 50 Most Probable Questions — CE-102", meta:"PDF · Predicted", link:"#" },
+          { kind:"video", title:"Final Suggestion Class — Important Topics", meta:"Video · 45 min", yt:"YOUR_ID_PYQ_SUGG" }
+        ]
+      }
+    ]
+  },
+
+  /* ---------------- 6. EXTRA HONEY ---------------- */
+  honey: {
+    name: "Extra Honey",
+    icon: "fa-star",
+    tagline: "Bonus material — tricks, tools & topper secrets 🍯",
+    chapters: [
+      {
+        title: "Formula Vault",
+        items: [
+          { kind:"pdf", title:"All Formulas — Engineering Mechanics (Single Sheet)", meta:"PDF · 3 pages", link:"#" },
+          { kind:"pdf", title:"100 Formulas You Must Memorize", meta:"PDF · 6 pages", link:"#" }
+        ]
+      },
+      {
+        title: "Shortcuts & Tricks",
+        items: [
+          { kind:"video", title:"10 Shortcuts to Solve Statics Problems Faster", meta:"Video · 28 min", yt:"YOUR_ID_HONEY_01" },
+          { kind:"video", title:"How to Draw SFD & BMD in 60 Seconds", meta:"Video · 18 min", yt:"YOUR_ID_HONEY_02" },
+          { kind:"pdf", title:"Calculation Shortcuts & Approximations", meta:"PDF · 5 pages", link:"#" }
+        ]
+      },
+      {
+        title: "Advanced / Extra Topics",
+        items: [
+          { kind:"video", title:"3D Statics & Equilibrium in Space", meta:"Video · 42 min", yt:"YOUR_ID_HONEY_03" },
+          { kind:"video", title:"Virtual Work Method — Bonus Lecture", meta:"Video · 35 min", yt:"YOUR_ID_HONEY_04" },
+          { kind:"pdf", title:"Graphical Method & Funicular Polygon", meta:"PDF · 8 pages", link:"#" }
+        ]
+      },
+      {
+        title: "Software & Simulations",
+        items: [
+          { kind:"link", title:"Interactive Truss Simulator (Web App)", meta:"Tool · Online", link:"#" },
+          { kind:"link", title:"GeoGebra Applets — Moments & Couples", meta:"Tool · Online", link:"#" },
+          { kind:"link", title:"Free Body Diagram Practice Tool", meta:"Tool · Online", link:"#" }
+        ]
+      },
+      {
+        title: "Viva & Competitive Corner",
+        items: [
+          { kind:"pdf", title:"Viva Questions with Answers — CE-102", meta:"PDF · 12 pages", link:"#" },
+          { kind:"pdf", title:"MCQ Bank (500+ Questions)", meta:"PDF · Practice", link:"#" },
+          { kind:"link", title:"Engineering Mechanics MCQs — Online Quiz", meta:"Quiz · Online", link:"#" }
+        ]
+      },
+      {
+        title: "Recommended Resources",
+        items: [
+          { kind:"link", title:"Best YouTube Playlists for Engineering Mechanics", meta:"Curated List", link:"#" },
+          { kind:"pdf", title:"Reference Books & Author List", meta:"PDF · Guide", link:"#" },
+          { kind:"pdf", title:"7-Day Revision Plan Before Exam", meta:"PDF · Plan", link:"#" }
+        ]
+      }
+    ]
+  }
+};
+
+/* =========================================================
+   STATE & HELPERS
+   ========================================================= */
+const state = {
+  cat: "topics",
+  q: "",
+  expanded: new Set()
+};
+
+const tabsEl    = document.getElementById("tabs");
+const searchEl  = document.getElementById("search");
+const toggleBtn = document.getElementById("toggleAll");
+const catInfoEl = document.getElementById("catInfo");
+const wrapEl    = document.getElementById("chapterContainer");
+const modalEl   = document.getElementById("modal");
+const modalBody = document.getElementById("modalBody");
+const modalClose= document.getElementById("modalClose");
+
+const KIND_MAP = {
+  video: { icon:"fa-play",       label:"Video", cls:"k-video" },
+  pdf:   { icon:"fa-file-pdf",   label:"PDF",   cls:"k-pdf"   },
+  link:  { icon:"fa-link",       label:"Link",  cls:"k-link"  },
+  pyq:   { icon:"fa-file-lines", label:"PYQ",   cls:"k-pyq"   }
+};
+
+function escapeHtml(str){
+  return String(str).replace(/[&<>"']/g, s => ({
+    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+  }[s]));
+}
+
+/* =========================================================
+   RENDER — TABS
+   ========================================================= */
+function renderTabs(){
+  tabsEl.innerHTML = Object.entries(RESOURCES).map(([key, cat]) => {
+    const count = cat.chapters.reduce((sum, ch) => sum + ch.items.length, 0);
+    return `<button class="tab ${key === state.cat ? "active" : ""}" data-cat="${key}">
+      <i class="fas ${cat.icon}"></i>
+      <span>${escapeHtml(cat.name)}</span>
+      <span class="tab-count">${count}</span>
+    </button>`;
+  }).join("");
+
+  tabsEl.querySelectorAll(".tab").forEach(btn => {
+    btn.addEventListener("click", () => {
+      if(state.cat === btn.dataset.cat) return;
+      state.cat = btn.dataset.cat;
+      state.q = "";
+      state.expanded.clear();
+      searchEl.value = "";
+      renderTabs();
+      renderChapters();
+    });
+  });
+}
+
+/* =========================================================
+   RENDER — CATEGORY INFO
+   ========================================================= */
+function renderCatInfo(){
+  const cat = RESOURCES[state.cat];
+  catInfoEl.innerHTML = `<i class="fas ${cat.icon}"></i><span>${escapeHtml(cat.tagline)}</span>`;
+}
+
+/* =========================================================
+   RENDER — CHAPTERS
+   ========================================================= */
+function renderChapters(){
+  const cat = RESOURCES[state.cat];
+  const q = state.q.trim().toLowerCase();
+
+  let html = "";
+  let visible = 0;
+
+  cat.chapters.forEach((ch, ci) => {
+    const items = ch.items.filter(it => {
+      if(!q) return true;
+      return (it.title + " " + (it.meta || "")).toLowerCase().includes(q);
+    });
+    if(!items.length) return;
+
+    visible++;
+    const id = `${state.cat}-${ci}`;
+    const open = state.expanded.has(id) || q.length > 0;
+
+    html += `
+      <div class="chapter ${open ? "active" : ""}" data-id="${id}">
+        <div class="chapter-header">
+          <div class="chapter-left">
+            <span class="chapter-num">${String(ci + 1).padStart(2, "0")}</span>
+            <h2 class="chapter-title">${escapeHtml(ch.title)}</h2>
+          </div>
+          <div class="chapter-right">
+            <span class="chip">${items.length} item${items.length > 1 ? "s" : ""}</span>
+            <span class="chapter-toggle"><i class="fas fa-chevron-down"></i></span>
+          </div>
+        </div>
+        <div class="chapter-body">
+          <div class="res-grid">
+            ${items.map(renderCard).join("")}
+          </div>
+        </div>
+      </div>`;
+  });
+
+  if(!visible){
+    wrapEl.innerHTML = `
+      <div class="empty">
+        <i class="fas fa-magnifying-glass"></i>
+        <p>No resources found${q ? ` for "<strong>${escapeHtml(state.q)}</strong>"` : ""}.</p>
+      </div>`;
+    toggleBtn.textContent = "Expand All";
+    return;
+  }
+
+  wrapEl.innerHTML = html;
+  bindChapterEvents();
+  updateToggleAllLabel();
+}
+
+/* =========================================================
+   RENDER — SINGLE CARD
+   ========================================================= */
+function renderCard(item){
+  const k = KIND_MAP[item.kind] || KIND_MAP.link;
+  return `
+    <div class="res-card ${k.cls}"
+         data-kind="${item.kind}"
+         data-yt="${escapeHtml(item.yt || "")}"
+         data-link="${escapeHtml(item.link || "")}"
+         data-title="${escapeHtml(item.title)}">
+      <div class="res-icon"><i class="fas ${k.icon}"></i></div>
+      <div class="res-body">
+        <h4 class="res-title">${escapeHtml(item.title)}</h4>
+        <div class="res-meta">
+          <span>${escapeHtml(item.meta || "")}</span>
+          <span class="res-kind">${k.label}</span>
+        </div>
+      </div>
+      <i class="fas fa-chevron-right res-arrow"></i>
+    </div>`;
+}
+
+/* =========================================================
+   EVENTS — CHAPTERS + CARDS
+   ========================================================= */
+function bindChapterEvents(){
+  wrapEl.querySelectorAll(".chapter-header").forEach(header => {
+    header.addEventListener("click", () => {
+      const chapter = header.parentElement;
+      const id = chapter.dataset.id;
+      chapter.classList.toggle("active");
+      if(chapter.classList.contains("active")) state.expanded.add(id);
+      else state.expanded.delete(id);
+      updateToggleAllLabel();
+    });
+  });
+
+  wrapEl.querySelectorAll(".res-card").forEach(card => {
+    card.addEventListener("click", () => {
+      const kind  = card.dataset.kind;
+      const yt    = card.dataset.yt;
+      const link  = card.dataset.link;
+      const title = card.dataset.title;
+
+      if(kind === "video"){
+        openVideoModal(yt, title);
+      } else if(link && link !== "#" && link !== ""){
+        window.open(link, "_blank", "noopener");
+      } else {
+        openPlaceholderModal(title, kind);
+      }
+    });
+  });
+}
+
+/* =========================================================
+   MODAL
+   ========================================================= */
+function openVideoModal(yt, title){
+  if(!yt || yt.startsWith("YOUR")){
+    modalBody.innerHTML = `
+      <div class="modal-placeholder">
+        <i class="fas fa-video-slash"></i>
+        <p>Video not linked yet</p>
+        <small>${escapeHtml(title)}</small>
+      </div>`;
+  } else {
+    modalBody.innerHTML = `
+      <div class="modal-video">
+        <iframe src="https://www.youtube.com/embed/${encodeURIComponent(yt)}?autoplay=1&rel=0"
+                title="${escapeHtml(title)}"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+      </div>`;
+  }
+  showModal();
+}
+
+function openPlaceholderModal(title, kind){
+  const label = (KIND_MAP[kind] || KIND_MAP.link).label;
+  modalBody.innerHTML = `
+    <div class="modal-placeholder">
+      <i class="fas fa-link"></i>
+      <p>${label} link not added yet</p>
+      <small>${escapeHtml(title)}</small>
+    </div>`;
+  showModal();
+}
+
+function showModal(){
+  modalEl.classList.add("open");
+  document.body.style.overflow = "hidden";
+}
+
+function closeModal(){
+  modalEl.classList.remove("open");
+  modalBody.innerHTML = "";
+  document.body.style.overflow = "";
+}
+
+modalClose.addEventListener("click", closeModal);
+modalEl.addEventListener("click", e => { if(e.target === modalEl) closeModal(); });
+document.addEventListener("keydown", e => { if(e.key === "Escape") closeModal(); });
+
+/* =========================================================
+   SEARCH
+   ========================================================= */
+let searchTimer;
+searchEl.addEventListener("input", e => {
+  clearTimeout(searchTimer);
+  const val = e.target.value;
+  searchTimer = setTimeout(() => {
+    state.q = val;
+    renderChapters();
+  }, 140);
+});
+
+/* =========================================================
+   EXPAND / COLLAPSE ALL
+   ========================================================= */
+toggleBtn.addEventListener("click", () => {
+  const cat = RESOURCES[state.cat];
+  const chapters = wrapEl.querySelectorAll(".chapter");
+  if(!chapters.length) return;
+
+  const allOpen = Array.from(chapters).every(ch => ch.classList.contains("active"));
+
+  chapters.forEach(ch => {
+    const id = ch.dataset.id;
+    if(allOpen){
+      ch.classList.remove("active");
+      state.expanded.delete(id);
+    } else {
+      ch.classList.add("active");
+      state.expanded.add(id);
+    }
+  });
+
+  updateToggleAllLabel();
+});
+
+function updateToggleAllLabel(){
+  const chapters = wrapEl.querySelectorAll(".chapter");
+  if(!chapters.length){
+    toggleBtn.textContent = "Expand All";
+    return;
+  }
+  const allOpen = Array.from(chapters).every(ch => ch.classList.contains("active"));
+  toggleBtn.textContent = allOpen ? "Collapse All" : "Expand All";
+}
+
+/* =========================================================
+   TOTAL RESOURCE COUNT
+   ========================================================= */
+function updateTotalCount(){
+  let total = 0;
+  Object.values(RESOURCES).forEach(cat => {
+    cat.chapters.forEach(ch => { total += ch.items.length; });
+  });
+  document.getElementById("totalCount").textContent = total;
+}
+
+/* =========================================================
+   INIT
+   ========================================================= */
+(function init(){
+  updateTotalCount();
+  renderTabs();
+  renderCatInfo();
+  renderChapters();
+})();
+</script>
+</body>
+</html>
